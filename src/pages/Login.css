@@ -1,0 +1,14 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    background-color: #89C07D;
+}
+/* 
+h1 {
+    padding: 100px
+} */
