@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import CashbackPage from './pages/cashback.jsx'
+import CashbackPage from './pages/Cashback.jsx'
 
 function App() {
   return (
