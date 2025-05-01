@@ -1,4 +1,4 @@
-import Voucher from "../components/Voucher.jsx"
+import Voucher from "../components/Voucher/Voucher.jsx"
 import "./Cashback.css"
 
 function CashbackPage({points, name}){
