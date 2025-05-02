@@ -1,5 +1,5 @@
 import "./Login.css";
-import LoginInput from "../components/LoginInput/LoginInput";
+import LoginInput from "../../components/LoginInput/LoginInput";
 import { useState, useEffect } from 'react';
 
 
