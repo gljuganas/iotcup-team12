@@ -12,7 +12,7 @@ export default function LoginInput() {
 
     return (
         <div className="login-form">
-            <h1>User Login</h1>
+            <h1>USER LOGIN</h1>
             <form onSubmit={handleLogin}>
                 <label>
                     <input 
