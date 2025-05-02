@@ -11,6 +11,18 @@ header {
     background-color: #fefbea;
 }
 
+.voucherGrid {
+    width: 100%;
+  }
+  
+.pageContainer {
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+  }
+
+
+
 .text-points {
     font-size: 48px;
     color: #183b1d;
