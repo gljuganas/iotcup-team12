@@ -1,5 +1,6 @@
 body {
     background-color: #e1eddf;
+    display: flex;   
 }
 
 header {
@@ -8,13 +9,15 @@ header {
 }
 .points-container {
     background-color: #fefbea;
-
 }
 
 .text-points {
-
+    font-size: 48px;
+    color: #183b1d;
 }
 
 .text-welcome {
-
+    font-weight: bold;
+    font-size: 25px;
+    color: #183b1d;
 }
