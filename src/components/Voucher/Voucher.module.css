@@ -1,16 +1,17 @@
 .ticket {
+    margin: 12px;
+    width: 100%; 
+    height: auto;
+    background-color: #fdfae7;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    background-color: #fdfae7;
-    padding: 16px;
-    border-radius: 12px;
-    width: 350px;
-    height: 120px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    box-sizing: border-box;
   }
   
   /* Left side logo */
-  .logoContainer {
+  .logoContainer{
     flex: 0 0 90px;
     display: flex;
     justify-content: center;
@@ -19,7 +20,7 @@
   
     /* Add dashed dividing line */
     border-right: 2px dashed #999;
-    height: 80px; /* ensures the line is visible vertically */
+    height: 80px; 
     box-sizing: border-box;
     padding-right: 16px;
   }
