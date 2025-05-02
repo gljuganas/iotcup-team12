@@ -1,6 +1,8 @@
 import './Register.css';
 import { useState } from 'react';
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
+
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -8,54 +10,93 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [rfid, setRfid] = useState("");
-    const [error, setError] = useState("");
-    
-    async function registerUser() {
-        // TEST DB CONNECTION ONLY
-        try {
-            const queryParams = new URLSearchParams({
-                id: 1,
-            }).toString();
-    
-            console.log("Query Params:", queryParams);
-    
-            const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/user?${queryParams}`);
-            console.log(response.data);
-
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }
-    
-
- 
+    const [message, setMessage] = useState("");
+     
     async function handleRegister(e) {
         e.preventDefault(); 
-         await registerUser(); // Call the function to test DB connection
-        console.log("Login data:", { name, email, password, confirmPassword, rfid });
+        const allFieldsFilled = await checkAllFields();
+        const emailValid = await isValidEmail(email);
+        const passwordMatch = await checkPassword();
+        const passwordHashed = await hashPassword(password);
 
-        if (password !== confirmPassword) {
-            setError("Passwords do not match!");
-            setTimeout(() => {
-                setError("");
-                setPassword("");
-                setConfirmPassword("");
-            }, 3000);
-
-            return;
+        if (allFieldsFilled && emailValid && passwordMatch) {
+            try {
+                const response = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/add_user`, {
+                    name: name,
+                    email: email,
+                    password: passwordHashed,
+                    balance: 0.00, // Hard coded since new user has 0 balance
+                });
+                if (response.status === 200) {
+                    setMessage("User registered successfully!");
+                    setTimeout(() => {
+                        setMessage("");
+                    }, 3000);
+                } else {
+                    setMessage("Error registering user!");
+                    setTimeout(() => {
+                        setMessage("");
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error("Error registering user:", error);
+            }
         }
     }
 
     // Function to check if all fields are filled
+    async function checkAllFields() {
+        if (!name || !email || !password || !confirmPassword) {
+            setMessage("Please fill all fields!");
+            setTimeout(() => {
+                setMessage("");
+            }, 3000);
+            return false;
+        }
+        return true;
+    }
 
     // Function to check if user not taken
+    // Idk if still needed, but just in case
+    // async function checkUserTaken() {
+    //     try {
+    //         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/user?email=${email}`);
+    //         if (response.data.length > 0) {
+    //             setError("Email already taken!");
+    //             setTimeout(() => {
+    //                 setError("");
+    //             }, 3000);
+    //             return false;
+    //         }
+    //         return true;
+    //     } catch (error) {
+    //         console.error("Error checking user:", error);
+    //     }
+    // }
 
     // Function to check if the email is valid
+    async function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
 
     // Function to check if password is similar
+    async function checkPassword() {
+        if (password !== confirmPassword) {
+            setMessage("Passwords do not match!");
+            setTimeout(() => {
+                setMessage("");
+            }, 3000);
+            return false;
+        }
+        return true;
+    }
 
     // Function to hash the password
-
+    async function hashPassword(password) {
+        const salt = await bcrypt.genSalt(10);
+        return await bcrypt.hash(password, salt);
+    }
     // Function to send the data to the server
 
     return (
@@ -108,7 +149,11 @@ export default function Register() {
                             onChange={(e) => setRfid(prev => e.target.value)}
                         />
                     </label>
-                    {error && <div className='error'>{error}</div>}
+                    {message && (
+                        <div className={message.includes("successfully") ? 'success' : 'error'}>
+                            {message}
+                        </div>
+                    )}
                     <input type="submit" value="SUBMIT" />
                 </form>
             </div>
