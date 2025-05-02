@@ -1,5 +1,6 @@
 import './Register.css';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -9,9 +10,28 @@ export default function Register() {
     const [rfid, setRfid] = useState("");
     const [error, setError] = useState("");
     
+    async function registerUser() {
+        // TEST DB CONNECTION ONLY
+        try {
+            const queryParams = new URLSearchParams({
+                id: 1,
+            }).toString();
+    
+            console.log("Query Params:", queryParams);
+    
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/user?${queryParams}`);
+            console.log(response.data);
 
-    function handleRegister(e) {
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+    
+
+ 
+    async function handleRegister(e) {
         e.preventDefault(); 
+         await registerUser(); // Call the function to test DB connection
         console.log("Login data:", { name, email, password, confirmPassword, rfid });
 
         if (password !== confirmPassword) {
@@ -26,9 +46,13 @@ export default function Register() {
         }
     }
 
+    // Function to check if all fields are filled
+
+    // Function to check if user not taken
+
     // Function to check if the email is valid
 
-    // Function to check if all fields are filled
+    // Function to check if password is similar
 
     // Function to hash the password
 
