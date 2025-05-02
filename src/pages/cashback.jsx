@@ -1,4 +1,3 @@
-import styles from "./Cashback.css";
 import Voucher from "../components/Voucher/Voucher.jsx"
 import VoucherPopup from "../components/VoucherPopup/VoucherPopup.jsx";
 import { useState } from "react";
@@ -37,42 +36,46 @@ function CashbackPage({points, name}){
     };
     
     return (
-        <body>
+        <>
             <header>
                 <p>ECOLOOP</p>
             </header>
-            <div class="points-container">
-                <p class="text-welcome">HI {name}, YOU CURRENTLY HAVE</p>
-                <p class="text-points">{points} POINTS</p>
-            </div>
+            <body>
+                <div class="points-container">
+                    <img src="/piggybank.png" alt="pic here"></img>
+                    <div class="points-container-text">
+                        <p class="text-welcome">HI {name}, YOU CURRENTLY HAVE</p>
+                        <p class="text-points">{points} POINTS</p>
+                    </div>
+                </div>
 
-            <div style={{ padding: '32px' }}>
-            <h1>Explore Vouchers</h1>
+                <div class="vouchers-container">
+                    <h1>EXPLORE VOUCHERS</h1>
+                    <div class="pageContainer">
+                        {vouchers.map((v, idx) => (
+                        <Voucher
+                            key={idx}
+                            title={v.title}
+                            storename={v.storename}
+                            points={v.points}
+                            logoUrl={v.logoUrl}
+                            onRedeem={handleRedeem}
+                        />
+                        ))}
+                    </div>
 
-            <div className={styles.pageContainer}>
-                {vouchers.map((v, idx) => (
-                <Voucher
-                    key={idx}
-                    title={v.title}
-                    storename={v.storename}
-                    points={v.points}
-                    logoUrl={v.logoUrl}
-                    onRedeem={handleRedeem}
-                />
-                ))}
-            </div>
-
-            {selectedVoucher && (
-                <VoucherPopup
-                    title={selectedVoucher.title}
-                    storeName={selectedVoucher.storename}
-                    points={selectedVoucher.points}
-                    logoUrl={selectedVoucher.logoUrl}
-                    onClose={closePopup}
-                />
-            )}
-        </div>
-        </body>
+                    {selectedVoucher && (
+                        <VoucherPopup
+                            title={selectedVoucher.title}
+                            storeName={selectedVoucher.storename}
+                            points={selectedVoucher.points}
+                            logoUrl={selectedVoucher.logoUrl}
+                            onClose={closePopup}
+                        />
+                    )}
+                </div>
+            </body>
+        </>
     )
 }
 
