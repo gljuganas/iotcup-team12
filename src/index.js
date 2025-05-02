@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import NotFound from './pages/PageNotFound/NotFound';
+import Register from './pages/Register/Register';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {path: '/', element: <App />},
-  // {path: '/register', element: <LoginPage />},
+  {path: '/register', element: <Register />},
   // {path: '/cashback', element: <CashBack />},
   {path: '*', element: <NotFound />},
 ]);
