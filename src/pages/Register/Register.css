@@ -1,13 +1,22 @@
 
+.register-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    background-color: #89C07D;
+}
 
-.login-form {
+.register-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #fefbe9;
     width: 394px;
-    height: 364px;
+    height: 540px;
     border-radius: 20px;
     margin: 100px;
 }
@@ -23,11 +32,11 @@ form > label {
     padding: 10px;
 
 }
-.login-form > h1 {
+.register-form > h1 {
     color: #183B1D;
 }
-.login-form input[type="text"],
-.login-form input[type="password"] {
+.register-form input[type="text"],
+.register-form input[type="password"] {
   width: 100%;        
   padding: 10px;
   font-size: 16px;
@@ -38,18 +47,22 @@ form > label {
   border-radius: 5px;
 }
 
-.login-form input[type="submit"] {
+.register-form input[type="submit"] {
   background-color: #183B1D;
   color: white;
   padding: 10px;
-  margin: 5px;
+  margin: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
+.success {
+    color: green;
+    margin-top: 10px;
+}
 
 .error {
-  color: red;
-  margin-top: 10px;
+    color: red;
+    margin-top: 10px;
 }
