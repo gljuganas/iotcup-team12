@@ -1,9 +1,12 @@
 import './App.css';
 import CashbackPage from './pages/Cashback';
+import LoginPage from './pages/Login/Login.jsx';
 
 function App() {
   return (
-    <CashbackPage name="NINA" points="1234"/>
+    <div>
+      <LoginPage />
+    </div>
   );
 }
 

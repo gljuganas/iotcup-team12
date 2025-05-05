@@ -1,3 +1,4 @@
+
 import CashbackHeader from "../components/Cashback/CashbackHeader.jsx";
 import Voucher from "../components/Voucher/Voucher.jsx"
 import VoucherPopup from "../components/VoucherPopup/VoucherPopup.jsx";
@@ -79,3 +80,4 @@ function CashbackPage({points, name}){
 }
 
 export default CashbackPage
+
