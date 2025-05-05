@@ -1,0 +1,75 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .popup {
+    background-color: #c6e2b2;
+    padding: 24px;
+    border-radius: 12px;
+    width: 400px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .voucherCard {
+    display: flex;
+    align-items: center;
+    background-color: #fdfae7;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 16px;
+  }
+  
+  .info {
+    text-align: left;
+  }
+  
+  .title {
+    font-weight: bold;
+  }
+  
+  .store {
+    color: #5a5a5a;
+  }
+  
+  .points {
+    font-size: 0.9rem;
+    color: #999;
+  }
+  
+  .redeemButton {
+    background-color: #2f4f4f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
