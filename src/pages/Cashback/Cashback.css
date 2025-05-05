@@ -1,6 +1,6 @@
 /* dark green panel on top */
 
-body {
+.body-container {
     display: flex;
     flex-direction: column;
     background-color: #e1eddf;  

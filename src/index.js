@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import NotFound from './pages/PageNotFound/NotFound';
 import Register from './pages/Register/Register';
+import CashbackPage from './pages/Cashback/Cashback.jsx';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 const router = createBrowserRouter([
   {path: '/', element: <App />},
   {path: '/register', element: <Register />},
-  {path: '/home', element: <h1>HOME</h1>},
+  {path: '/home', element: <CashbackPage />},
   {path: '*', element: <NotFound />},
 ]);
 
@@ -18,7 +21,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

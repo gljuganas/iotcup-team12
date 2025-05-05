@@ -3,14 +3,18 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../store/userSlice'; // Assuming you have a userSlice in your Redux store
 
 export default function LoginInput() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     const navigate = useNavigate()
+    const dispatch = useDispatch();
 
     function handleLogin(e) {
+        console.log(localStorage)
         e.preventDefault();
         if (!email || !password) {
             setMessage("Please enter both email and password!");
@@ -24,7 +28,8 @@ export default function LoginInput() {
                 if (response.status === 200 && response.data) {
                     const user = response.data;
                     if (user && bcrypt.compareSync(password, user.password)) {
-                        navigate('/home'); // Redirect to the home page
+                        dispatch(setUser(user));
+                        navigate('/home'); 
                     } else {
                         setMessage("Invalid email or password!");
                         setTimeout(() => {

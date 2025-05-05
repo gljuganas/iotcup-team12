@@ -25,7 +25,9 @@ export default function Register() {
                     name: name,
                     email: email,
                     password: passwordHashed,
+                    rfid: rfid,
                     balance: 0.00, // Hard coded since new user has 0 balance
+                    permission: 0
                 });
                 if (response.status === 200) {
                     setMessage("User registered successfully!");

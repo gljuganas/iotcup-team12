@@ -1,11 +1,13 @@
 
-import CashbackHeader from "../components/Cashback/CashbackHeader.jsx";
-import Voucher from "../components/Voucher/Voucher.jsx"
-import VoucherPopup from "../components/VoucherPopup/VoucherPopup.jsx";
+import CashbackHeader from "../../components/Cashback/CashbackHeader.jsx";
+import Voucher from "../../components/Voucher/Voucher.jsx"
+import VoucherPopup from "../../components/VoucherPopup/VoucherPopup.jsx";
 import { useState } from "react";
 import "./Cashback.css"
+import { useSelector } from "react-redux";
 
-function CashbackPage({points, name}){
+function CashbackPage(){
+    const user = useSelector((state) => state.user);
     const [selectedVoucher, setSelectedVoucher] = useState(null);
 
     const vouchers = [
@@ -40,12 +42,12 @@ function CashbackPage({points, name}){
     return (
         <>
             <CashbackHeader />
-            <body>
+            <body className="body-container">
                 <div class="points-container">
                     <img src="/piggybank.png" alt="pic here"></img>
                     <div class="points-container-text">
-                        <p class="text-welcome">HI {name}, YOU CURRENTLY HAVE</p>
-                        <p class="text-points">{points} POINTS</p>
+                        <p class="text-welcome">HI {user?.name.toUpperCase()}, YOU CURRENTLY HAVE</p>
+                        <p class="text-points">{user?.balance} POINTS</p>
                     </div>
                 </div>
 
