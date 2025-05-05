@@ -1,5 +1,5 @@
 import './App.css';
-import CashbackPage from './pages/Cashback.jsx'
+import CashbackPage from './pages/Cashback';
 
 function App() {
   return (

@@ -1,3 +1,4 @@
+import CashbackHeader from "../components/Cashback/CashbackHeader.jsx";
 import Voucher from "../components/Voucher/Voucher.jsx"
 import VoucherPopup from "../components/VoucherPopup/VoucherPopup.jsx";
 import { useState } from "react";
@@ -37,9 +38,7 @@ function CashbackPage({points, name}){
     
     return (
         <>
-            <header>
-                <p>ECOLOOP</p>
-            </header>
+            <CashbackHeader />
             <body>
                 <div class="points-container">
                     <img src="/piggybank.png" alt="pic here"></img>
