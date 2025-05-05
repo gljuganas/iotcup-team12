@@ -1,0 +1,79 @@
+/* dark green panel on top */
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #e1eddf;  
+    width: 100%;
+    margin-top: 120px;
+
+}
+
+/* panel containing points and name*/
+.points-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    background-color: #fefbea;
+    width: 90%;
+    box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 20px auto;
+    padding: 20px;
+}
+
+img {
+    display: block;
+    width: 12%;
+    height: auto;
+}
+
+.points-container-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.text-points {
+    font-size: 48px;
+    margin: 0;
+    padding: 0;
+    color: #183b1d;
+}
+
+.text-welcome {
+    font-weight: bold;
+    font-size: 25px;
+    color: #183b1d;
+    margin: 0;
+    padding: 0l
+}
+
+.vouchers-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* EXPLORE VOUCHERS text */ 
+h1 {
+    color: #183B1D;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-bottom: 0;
+}
+  
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0; 
+}
+
+
