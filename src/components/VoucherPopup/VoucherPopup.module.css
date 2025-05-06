@@ -16,9 +16,16 @@
     padding: 24px;
     border-radius: 12px;
     width: 600px;
-    height: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     text-align: center;
+  }
+
+  .popupContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .closeButton {
@@ -36,19 +43,32 @@
     align-items: center;
     background-color: #fdfae7;
     border-radius: 12px;
+    width: 400px;
+    height: 100px;
     padding: 16px;
     margin-bottom: 20px;
+    margin-top: 15px;
   }
   
-  .logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-right: 16px;
+  .giftCard {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    /* Add dashed dividing line */
+    border-right: 2px dashed #999;
+    height: 80px; 
+    box-sizing: border-box;
   }
   
   .info {
-    text-align: left;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .title {
@@ -74,3 +94,28 @@
     margin-top: 20px;
   }
   
+  .redeemInfo {
+    text-align: left;
+    margin: 0 20px;
+  }
+
+  .detailsTitle{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .storeName{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #2f4f4f;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .giftCert{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
