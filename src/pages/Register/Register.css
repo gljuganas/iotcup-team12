@@ -16,7 +16,7 @@
     justify-content: center;
     background-color: #fefbe9;
     width: 394px;
-    height: 540px;
+    height: 580px;
     border-radius: 20px;
     margin: 100px;
 }
@@ -57,6 +57,18 @@ form > label {
   cursor: pointer;
   font-size: 16px;
 }
+
+.back-button {
+    background-color: #183B1D;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .success {
     color: green;
     margin-top: 10px;

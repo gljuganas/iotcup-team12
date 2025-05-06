@@ -2,6 +2,7 @@ import './Register.css';
 import { useState } from 'react';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Register() {
@@ -11,6 +12,7 @@ export default function Register() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [rfid, setRfid] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
      
     async function handleRegister(e) {
         e.preventDefault(); 
@@ -76,13 +78,11 @@ export default function Register() {
     //     }
     // }
 
-    // Function to check if the email is valid
     async function isValidEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
 
-    // Function to check if password is similar
     async function checkPassword() {
         if (password !== confirmPassword) {
             setMessage("Passwords do not match!");
@@ -94,12 +94,14 @@ export default function Register() {
         return true;
     }
 
-    // Function to hash the password
     async function hashPassword(password) {
         const salt = await bcrypt.genSalt(10);
         return await bcrypt.hash(password, salt);
     }
-    // Function to send the data to the server
+
+    function goBack() {
+        navigate(-1); 
+    }
 
     return (
         <div className='register-container'>
@@ -157,6 +159,7 @@ export default function Register() {
                         </div>
                     )}
                     <input type="submit" value="SUBMIT" />
+                    <button className='back-button' onClick={goBack}>BACK</button>
                 </form>
             </div>
         </div>

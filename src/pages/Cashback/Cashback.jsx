@@ -1,35 +1,19 @@
-
 import CashbackHeader from "../../components/Cashback/CashbackHeader.jsx";
-import Voucher from "../../components/Voucher/Voucher.jsx"
+import Voucher from "../../components/Voucher/Voucher.jsx";
+import vouchers from "../../vouchers.js";
 import VoucherPopup from "../../components/VoucherPopup/VoucherPopup.jsx";
 import { useState } from "react";
-import "./Cashback.css"
+import "./Cashback.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { clearUser } from '../../store/userSlice';
 
-function CashbackPage(){
+function CashbackPage() {
     const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [selectedVoucher, setSelectedVoucher] = useState(null);
-
-    const vouchers = [
-        {
-            title: '15 PESOS OFF',
-            storename: 'Potato Corner',
-            points: 15,
-            logoUrl: 'https://example.com/logo.png',
-        },
-        {
-            title: 'BUY 1 TAKE 1',
-            storename: 'MilkTea Hub',
-            points: 25,
-            logoUrl: 'https://example.com/milktea.png',
-        },
-        {
-            title: 'BUY 1 TAKE 1',
-            storename: 'Burger Hub',
-            points: 25,
-            logoUrl: 'https://example.com/milktea.png',
-        },
-    ];
 
     const handleRedeem = (voucher) => {
         setSelectedVoucher(voucher);
@@ -39,21 +23,37 @@ function CashbackPage(){
         setSelectedVoucher(null);
     };
     
+    const handleLogout = () => {
+        dispatch(clearUser());
+        navigate('/', { replace: true });
+    };
+
+    const handleRegisterUser = () => {
+        navigate('/register');
+    };
+    
+    const userName = user?.name ? user.name.toUpperCase() : 'GUEST';
+    const userBalance = user?.balance || 0;
+    
     return (
         <>
-            <CashbackHeader />
-            <body className="body-container">
-                <div class="points-container">
-                    <img src="/piggybank.png" alt="pic here"></img>
-                    <div class="points-container-text">
-                        <p class="text-welcome">HI {user?.name.toUpperCase()}, YOU CURRENTLY HAVE</p>
-                        <p class="text-points">{user?.balance} POINTS</p>
+            <CashbackHeader 
+                permission={user?.permission} 
+                handleRegisterUser={handleRegisterUser}
+                handleLogout={handleLogout}
+            />
+            <div className="body-container">
+                <div className="points-container">
+                    <img className="voucher-img" src="/piggybank.png" alt="piggy bank" />
+                    <div className="points-container-text">
+                        <p className="text-welcome">HI {userName}, YOU CURRENTLY HAVE</p>
+                        <p className="text-points">{userBalance} POINTS</p>
                     </div>
                 </div>
 
-                <div class="vouchers-container">
+                <div className="voucher-container">
                     <h1>EXPLORE VOUCHERS</h1>
-                    <div class="pageContainer">
+                    <div className="pageContainer">
                         {vouchers.map((v, idx) => (
                         <Voucher
                             key={idx}
@@ -61,7 +61,7 @@ function CashbackPage(){
                             storename={v.storename}
                             points={v.points}
                             logoUrl={v.logoUrl}
-                            onRedeem={handleRedeem}
+                            onRedeem={() => handleRedeem(v)}
                         />
                         ))}
                     </div>
@@ -76,10 +76,9 @@ function CashbackPage(){
                         />
                     )}
                 </div>
-            </body>
+            </div>
         </>
-    )
+    );
 }
 
-export default CashbackPage
-
+export default CashbackPage;
