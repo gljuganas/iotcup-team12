@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearUser } from '../../store/userSlice';
 
-function CashbackPage() {
+function Cashback() {
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,6 +30,11 @@ function CashbackPage() {
 
     const handleRegisterUser = () => {
         navigate('/register');
+    };
+
+    const handleRedeemVoucher = (voucher) => {
+        console.log("Redeeming Voucher") // add logic to redeem voucher
+        closePopup();
     };
     
     const userName = user?.name ? user.name.toUpperCase() : 'GUEST';
@@ -73,6 +78,7 @@ function CashbackPage() {
                             points={selectedVoucher.points}
                             logoUrl={selectedVoucher.logoUrl}
                             onClose={closePopup}
+                            onRedeem={handleRedeemVoucher}
                         />
                     )}
                 </div>
@@ -81,4 +87,4 @@ function CashbackPage() {
     );
 }
 
-export default CashbackPage;
+export default Cashback;

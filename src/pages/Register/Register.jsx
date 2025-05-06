@@ -2,7 +2,7 @@ import './Register.css';
 import { useState } from 'react';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Register() {
@@ -12,7 +12,6 @@ export default function Register() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [rfid, setRfid] = useState("");
     const [message, setMessage] = useState("");
-    const navigate = useNavigate();
      
     async function handleRegister(e) {
         e.preventDefault(); 
@@ -99,14 +98,10 @@ export default function Register() {
         return await bcrypt.hash(password, salt);
     }
 
-    function goBack() {
-        navigate(-1); 
-    }
-
     return (
         <div className='register-container'>
             <div className="register-form">
-                <h1>REGISTER USER</h1>
+                <h1 className='register-text'>REGISTER USER</h1>
                 <form onSubmit={handleRegister}>
                     <label>
                         <input 
@@ -159,7 +154,7 @@ export default function Register() {
                         </div>
                     )}
                     <input type="submit" value="SUBMIT" />
-                    <button className='back-button' onClick={goBack}>BACK</button>
+                    <Link to="/home">Go back</Link>
                 </form>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import styles from './VoucherPopup.module.css';
 
-function VoucherPopup({ title, storeName, points, logoUrl, onClose }) {
+function VoucherPopup({ title, storeName, points, logoUrl, onClose, onRedeem }) {
     return (
         <div className={styles.overlay}>
             <div className={styles.popup}>
@@ -15,16 +15,18 @@ function VoucherPopup({ title, storeName, points, logoUrl, onClose }) {
                     </div>
                 </div>
 
+                {/* div className={styles.redeemInfo}> */}
+
                 <h2>VOUCHER DETAILS</h2>
                 <strong>{storeName.toUpperCase()}</strong>
                 <p>Terms and Conditions:</p>
-                <ul>
+                <ol>
                     <li>1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                     <li>2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
                     <li>3. Ut enim ad minim veniam, quis nostrud exercitation.</li>
-                </ul>
+                </ol>
 
-                <button className={styles.redeemButton}>REDEEM VIA EMAIL</button>
+                <button className={styles.redeemButton} onClick={onRedeem}>REDEEM VIA EMAIL</button>
             </div>
         </div>
     );

@@ -32,8 +32,9 @@ form > label {
     padding: 10px;
 
 }
-.register-form > h1 {
+.register-text {
     color: #183B1D;
+    margin-left: 0; 
 }
 .register-form input[type="text"],
 .register-form input[type="password"] {

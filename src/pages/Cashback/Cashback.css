@@ -1,13 +1,12 @@
-/* dark green panel on top */
 
 .body-container {
     display: flex;
     flex-direction: column;
     background-color: #e1eddf;  
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    margin-top: 120px;
-
+    padding-top: 90px; 
+    overflow-y: auto; 
 }
 
 /* panel containing points and name*/
@@ -16,16 +15,20 @@
     flex-direction: row;
     justify-content: baseline;
     background-color: #fefbea;
-    width: 90%;
     box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 20px auto;
+    margin: 20px 25px;
     padding: 20px;
+    border-radius: 12px;
 }
 
 .voucher-img {
     display: block;
-    width: 12%;
-    height: auto;
+    max-width: 150px; 
+    max-height: 150px; 
+    min-width: 50px;  
+    min-height: 50px;
+    height: auto; 
+    width: auto;  
 }
 
 .points-container-text{
@@ -51,7 +54,7 @@
 
 .vouchers-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 /* EXPLORE VOUCHERS text */ 
@@ -71,7 +74,7 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 60%;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
     margin: 0; 

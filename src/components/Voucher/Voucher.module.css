@@ -1,6 +1,6 @@
 .ticket {
-    margin: 12px;
-    width: 100%; 
+    margin: 12px; 
+    width: 400px; 
     height: auto;
     background-color: #fdfae7;
     border-radius: 12px;
@@ -26,8 +26,8 @@
   }
   
   .logo {
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 80px;
+    max-height: 80px;
     object-fit: contain;
   }
   
@@ -49,17 +49,29 @@
   .store {
     color: #5a5a5a;
     font-size: 0.95rem;
+    margin-top: 0;
     margin-bottom: 10px;
   }
   
   .redeemButton {
     background-color: #2f4f4f;
     color: white;
+    padding: 10px;
+    margin: 5px;
     border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.85rem;
+    border-radius: 5px;
     cursor: pointer;
-    width: fit-content;
+    font-size: 16px;
+  }
+
+  .points{
+    color: grey;
+    font-size: 1rem;
   }
   
+  .pointsAndButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
