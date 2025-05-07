@@ -73,10 +73,12 @@
   
   .title {
     font-weight: bold;
+    margin: 5px;
   }
   
   .store {
     color: #5a5a5a;
+    margin: 5px;
   }
   
   .points {

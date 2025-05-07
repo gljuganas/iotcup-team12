@@ -4,7 +4,7 @@ export default function CashbackHeader({permission, handleRegisterUser, handleLo
 
     return (
         <header className='header-container'>
-            <p>ECOLOOP</p>
+            <img className='header-logo' src="/logo-gif.gif" alt="logo-gif" />
             <div className='button-container'>
                 { permission === 1 ? <button className='action-button' onClick={handleRegisterUser}>REGISTER USER</button> : null}
                 <button className='action-button' onClick={handleLogout}>LOGOUT</button>

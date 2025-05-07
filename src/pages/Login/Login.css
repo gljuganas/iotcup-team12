@@ -1,14 +1,25 @@
-
 .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-    background-color: #89C07D;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  background-color: #89c07d;
 }
-/* 
-h1 {
-    padding: 100px
-} */
+
+.logo {
+  max-width: 700px;
+  max-height: 700px;
+  min-width: 300px;
+  min-height: 200px;
+  height: auto;
+  width: auto;
+  margin: 5vh 12vh;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    margin: 20px;
+  }
+}
